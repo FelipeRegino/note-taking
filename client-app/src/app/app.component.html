@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <h1>
+    Note Taking
+  </h1>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="openDialog()"><mat-icon>add</mat-icon></button>
+</mat-toolbar>
+
+<mat-nav-list dense>
+  <div mat-list-item *ngFor="let note of notes" class="nav-item" (click)="openDialog(note, true)">
+    <span *ngIf="!note.status" class="item-concluded">
+      <small>Concluído</small>
+    </span>
+    <div class="item-preview">
+      <p>{{ note.title }}</p>
+      <p class="item-subtitle"><small>{{ note.content | truncate:[20] }}</small></p>
+    </div>
+    <mat-icon class="item-icon">create</mat-icon>
+  </div>
+</mat-nav-list>

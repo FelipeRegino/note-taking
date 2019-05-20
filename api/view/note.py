@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, jsonify, Response
-from app.database import DB_SESSION
+from api.database import DB_SESSION
 from ..models import Note
 import datetime
 
