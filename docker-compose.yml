@@ -6,7 +6,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
+    volumes:
+      - .:/var/www
     environment:
       - FLASK_DEBUG=1
+      - FLASK_APP=api
     expose:
       - "5000"

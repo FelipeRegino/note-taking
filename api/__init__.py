@@ -8,7 +8,7 @@ def create_app():
     """Função de configuração inicial da aplicação."""
     from flask import Flask
     from .view.note import MOD_NOTE
-    from app.database import DB_SESSION
+    from api.database import DB_SESSION
 
     app = Flask(__name__)
 
