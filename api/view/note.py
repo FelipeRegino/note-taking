@@ -39,7 +39,8 @@ def create():
     DB_SESSION.add(note)
     DB_SESSION.commit()
 
-    return Response('Nota criada com sucesso!', status=200)
+    return jsonify(note=note.serialize)
+
 
 
 @MOD_NOTE.route('/update/note/<int:id>', methods=['PUT'])
@@ -55,11 +56,11 @@ def update(id):
     note.date = date if date else note.date
     note.status = r['status'] if 'status' in r else note.status
     DB_SESSION.commit()
-    return jsonify({'status': 200, 'message': 'Nota atualizada com sucesso!'})
+    return jsonify({'message': 'Nota atualizada com sucesso!'})
 
 
 @MOD_NOTE.route('/delete/note/<int:id>', methods=['DELETE'])
 def delete(id):
     Note.query.filter(Note.id == id).delete()
     DB_SESSION.commit()
-    return jsonify({'status': 200, 'message': 'Nota deletada com sucesso!'})
+    return jsonify({'message': 'Nota deletada com sucesso!'})
