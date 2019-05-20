@@ -11,7 +11,7 @@ import { NoteDialog } from './note-dialog/note-dialog.component'
 export class AppComponent {
   title = 'Note Taking';
   notes = [];
-  API_URL = 'http://138.197.99.81:5000/'
+  API_URL = 'http://138.197.99.81:5000'
 
   constructor(private http: HttpClient, public dialog: MatDialog) { }
 
