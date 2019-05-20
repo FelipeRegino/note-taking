@@ -11,13 +11,13 @@ import { NoteDialog } from './note-dialog/note-dialog.component'
 export class AppComponent {
   title = 'Note Taking';
   notes = [];
-  API_URL = 'http://localhost:5000'
+  API_URL = 'http://138.197.99.81:5000'
 
   constructor(private http: HttpClient, public dialog: MatDialog) { }
 
   ngOnInit(){
     this.http.get(this.API_URL + '/get/notes')
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         this.notes = data.notes;
       })
   }
@@ -67,15 +67,14 @@ export class AppComponent {
 
   createNote(data){
     this.http.post(this.API_URL + '/create/note/', data)
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         this.notes.push(data.note)
       })
   }
 
   updateNote(data){
     this.http.put(this.API_URL + '/update/note/'+data.id, data)
-      .subscribe((data) => {
-      })
+      .subscribe((data) => {})
   }
 
   deleteNote(data){

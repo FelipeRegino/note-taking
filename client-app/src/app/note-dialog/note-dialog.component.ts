@@ -13,7 +13,8 @@ export class NoteDialog {
   note = {
     'title' : '',
     'date': '',
-    'content': ''
+    'content': '',
+    'extra': ''
   };
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient) { }
